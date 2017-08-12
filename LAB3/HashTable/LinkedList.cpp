@@ -19,7 +19,7 @@ LinkedList::LinkedList()
     length = 0;
 }
 
-// Inserts an item at the end of the list.
+// Inserts an item at  the list，sorted by size.
 void LinkedList::insertItem( Item * newItem )
 {
     if (!head -> next)

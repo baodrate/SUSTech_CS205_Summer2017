@@ -3,6 +3,7 @@
 //  HashTable
 //
 //  Created by Karlina Beringer on June 19, 2014.
+//  Modified by HoloShadow on Aug 12,2017.
 //  Demonstrate a simple Hash Table in C++.
 //  Implements a Linked List class.
 //**************************************************************
@@ -34,7 +35,7 @@ int main()
     Item * T = new Item {"Tizzy Tube",12, "abc12345", NULL};
     Item * U = new Item {"Underworld",64, "abc12345", NULL};
     Item * V = new Item {"Volcanic Ash",345, "abc12345", NULL};
-    Item * W = new Item {"Who When What Why",053, "abc12345", NULL};
+    Item * W = new Item {"Who changed china",053, "abc12345", NULL};
     Item * X = new Item {"XXX",4, "abc12345", NULL};
     Item * Y = new Item {"Yellow",17, "abc12345", NULL};
     Item * Z = new Item {"Zest of Lemon",2643, "abc12345", NULL};
