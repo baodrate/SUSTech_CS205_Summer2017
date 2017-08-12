@@ -6,9 +6,6 @@
 		//each one (clumsy), hide nothing, or
 		//we allow the funcMon to see them
 
-  	 friend std::ostream &operator<<(std::ostream &os,
-                          const YearToMonth &ytm);
- 
 	public:
    		YearToMonth(short years=0);
    		YearToMonth(short years,short months);
