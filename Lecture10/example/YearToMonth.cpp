@@ -1,3 +1,4 @@
+#include "YearToMonth.hpp"
 using namespace std;
 
 ostream &operator<<(ostream &os,
@@ -16,3 +17,7 @@ ostream &operator<<(ostream &os,
 return os;
 }
 
+YearToMonth::YearToMonth(short years,short months){
+  m_years=years;
+  m_months=months;
+      };
