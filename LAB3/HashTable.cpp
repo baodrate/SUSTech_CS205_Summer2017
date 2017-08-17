@@ -14,13 +14,13 @@
 // Array length is set to 13 by default.
 HashTable::HashTable( int tableLength )
 {
-    if (tableLength <= 0) tableLength = 13;
+    if (tableLength <= 0) tableLength = BUCKET_NUM;
     array = new LinkedList[ tableLength ];
     length = tableLength;
 }
 
 // Returns an array location for a given item key.
-int HashTable::hash( int itemSize )
+int HashTable::hash( long itemSize )
 {
     
     return (itemSize % BUCKET_NUM);
@@ -52,10 +52,10 @@ Item * HashTable::getItemByKeyandSize( string itemKey,int itemSize )
 // Display the contents of the Hash Table to console window.
 void HashTable::printTable()
 {
-    cout << "\nHash Table:\n";
+    cerr << "\nHash Table:\n";
     for (int i = 0; i < length; i++)
     {
-        cout << "Bucket " << i+1 << ": ";
+        cerr << "Bucket " << i+1 << ": ";
         array[i].printList();
     }
 }

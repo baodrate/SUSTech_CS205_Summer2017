@@ -40,12 +40,13 @@ int main(int argc, char * argv[])
                }
 
        }
-       int count=argc-optind;//how many columns selectd
+       int count=argc-optind;//para count
        if(count==0){
-         perror("Error:Columns to print should be given" );
+         perror("dir to check should be given" );
          printf("Usage: ./extract [-s sep][-i int][-h] arg\nOptions and arguments :\n-s:\tsep in file\n-i:\tignore which row\n-h:\thelp\narg:to print which column(s)\n");
          return 1;
        }
+       else i
        int para[count];//array to store those
        int init;//iter
        for(init=optind;init<argc;init++){

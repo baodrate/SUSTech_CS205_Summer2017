@@ -9,41 +9,54 @@
 //*****************************************************************
 
 #include "LinkedList.h"
-
+extern int pathsize;
+extern int tot;
 // Constructs the empty linked list object.
 // Creates the head node and sets length to zero.
 LinkedList::LinkedList()
 {
-    head = new Item {"Head",0, " ", NULL};
+    head = new Item {"Head",0, "", NULL,NULL};
     head -> next = NULL;
     length = 0;
 }
 
 // Inserts an item at  the list，sorted by size.
 void LinkedList::insertItem( Item * newItem )
-{
+{  if(tot>=0){ 
+    tot++;
+    if(!(tot%5))cerr<<"remind:"<<tot<<" files have been scanned\n";
+    }
     if (!head -> next)
     {
         head -> next = newItem;
-        printf("%d\n",newItem -> size );
         length++;
         return;
     }
-    Item * p = head;
-    Item * q = head;
-
-    while ((q!=NULL)&&((newItem -> size) > (q -> size)) )
+    Item * p = head->next;
+      Item * q = head->next;
+    while ((p!=NULL))
 
     {   
-        p = q;
-        printf("%s\n","ok");
-        q = p -> next;
-        
-
+       
+        q=p;
+        if(newItem->size==p->size)
+        {//cout<<"ok1"<<endl;
+         if(newItem->md5=="")newItem->md5=hashMd5(newItem->fp);
+        //cout<<"*"<<newItem->md5<<endl;
+        if(p->md5=="")p->md5=hashMd5(p->fp);
+        //cout<<"ok3"<<endl;
+        if(newItem->md5==p->md5)
+        {
+        //cout<<p->key<<endl;
+       cout<<(p->key).substr(pathsize+1,(p->key).length()-1)<<"\t"<<(newItem->key).substr(pathsize+1,(newItem->key).length()-1)<<endl;
+        delete newItem;
+        return;
+        }
+        }
+       p = p -> next;
     }
-    printf("ok1\n");
-    p -> next = newItem;
-    newItem -> next = q;
+    q -> next = newItem;
+    newItem -> next = NULL;
     length++;
 }
 
@@ -91,24 +104,24 @@ void LinkedList::printList()
 {
     if (length == 0)
     {
-        cout << "\n{ }\n";
+        cerr << "\n{ }\n";
         return;
     }
     Item * p = head;
     Item * q = head;
-    cout << "\n{ ";
+    cerr << "\n{ ";
     while (q)
     {
         p = q;
         if (p != head)
         {
-            cout << p -> key<< " | "<< p -> size << " | "<<p -> md5;
-            if (p -> next) cout << ", ";
-            else cout << " ";
+            cerr << p -> key<< " | "<< p -> size << " | "<<p -> md5;
+            if (p -> next) cerr << ", ";
+            else cerr << " ";
         }
         q = p -> next;
     }
-    cout << "}\n";
+    cerr << "}\n";
 }
 
 // Returns the length of the list.
@@ -116,7 +129,6 @@ int LinkedList::getLength()
 {
     return length;
 }
-
 // De-allocates list memory when the program terminates.
 LinkedList::~LinkedList()
 {
@@ -129,7 +141,6 @@ LinkedList::~LinkedList()
         if (q) delete p;
     }
 }
-
 //*****************************************************************
 // End of File
 //*****************************************************************

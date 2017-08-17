@@ -10,7 +10,7 @@
 
 #ifndef HashTable_h
 #define HashTable_h
-#define BUCKET_NUM 15
+#define BUCKET_NUM 131
 #include "LinkedList.h"
 
 //*****************************************************************
@@ -27,7 +27,7 @@ private:
     int length;
     
     // Returns an array location for a given item key.
-    int hash( int itemSize );
+    int hash( long itemSize );
     
 public:
     

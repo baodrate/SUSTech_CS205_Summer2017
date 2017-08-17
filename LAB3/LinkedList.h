@@ -13,6 +13,9 @@
 
 #include <iostream>
 #include <string>
+#include<cstdio>
+#include<cstdlib>
+#include"Hash.h"
 using namespace std;
 
 //*****************************************************************
@@ -21,9 +24,10 @@ using namespace std;
 struct Item
 {
     string key;
-    int size;
+    long size;
     string md5;
     Item * next;
+    FILE *fp;
 };
 
 //*****************************************************************
@@ -42,7 +46,6 @@ public:
     // Constructs the empty linked list object.
     // Creates the head node and sets length to zero.
     LinkedList();
-    
     // Inserts an item at the end of the list.
     void insertItem( Item * newItem );
     
@@ -57,7 +60,8 @@ public:
     
     // Displays list contents to the console window.
     void printList();
-    
+    //Returns the head of the list.
+    Item * getHead();
     // Returns the length of the list.
     int getLength();
     

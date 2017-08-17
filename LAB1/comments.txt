@@ -1,0 +1,2 @@
+Additional instructor's comments about your submission
+Task 1 doesn't read my name properly, task2 OK, task 3 OK EXCEPT that you are using the unsafe gets() and not checking for any buffer overflow. Well organized code. Would have been excellent work with safe buffer reading. Here it's too easy to crash.
